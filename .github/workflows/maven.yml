@@ -20,4 +20,4 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASS }}    
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -Dquarkus.container-image.username=${{ secrets.DOCKER_HUB_USER }} -Dquarkus.container-image.password=${{ secrets.DOCKER_HUB_PASS }} -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+      run: mvn -B package --file pom.xml -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
