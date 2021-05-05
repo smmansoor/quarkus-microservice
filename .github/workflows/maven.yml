@@ -14,4 +14,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml -Dquarkus.container-image.username=${{ DOCKER_HUB_USER }} -Dquarkus.container-image.password=${{ DOCKER_HUB_PASS }} -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
