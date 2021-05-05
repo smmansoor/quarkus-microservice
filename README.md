@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.com/smmansoor/quarkus-microservice.svg?branch=master)
+![Build Status](https://github.com/smmansoor/quarkus-microservice/actions/workflows/maven.yml/badge.svg)
 
 # quarkus-microservice
 
