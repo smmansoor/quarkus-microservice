@@ -14,10 +14,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    name: Login to DockerHub
-      -uses: docker/login-action@v1 
-        with:
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_PASS }}    
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with: 
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASS }}    
     - name: Build with Maven
       run: mvn -B package --file pom.xml -Dquarkus.container-image.username=${{ secrets.DOCKER_HUB_USER }} -Dquarkus.container-image.password=${{ secrets.DOCKER_HUB_PASS }} -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
