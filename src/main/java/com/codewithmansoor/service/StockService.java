@@ -18,7 +18,7 @@ import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-@Path("/api")
+@Path("api")
 @ApplicationScoped
 public class StockService {
 
@@ -28,12 +28,12 @@ public class StockService {
 
   @Traced(operationName = "Stock Price")
   @GET
-  @Path("/stock")
+  @Path("stock")
   @Timed(name = "StockTimed", description = "A measure of how long it takes to perform the operation", unit = MetricUnits.MILLISECONDS)
   @Produces(MediaType.APPLICATION_JSON)
-  @Timeout (value = 2 , unit = ChronoUnit.SECONDS)
-  @Retry(delay = 1000, maxRetries = 2)
-  @Fallback(StockFallBack.class)
+ // @Timeout (value = 2 , unit = ChronoUnit.SECONDS)
+ // @Retry(delay = 1000, maxRetries = 2)
+ // @Fallback(StockFallBack.class)
   public String stock() {
     return cryptoRestClient.getBitconPrice();
   }
