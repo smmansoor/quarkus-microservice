@@ -1,0 +1,6 @@
+FROM fabric8/java-alpine-openjdk11-jre
+WORKDIR /work/
+COPY target/*-runner.jar runner.jar
+RUN chmod 775 /work
+EXPOSE 8081
+ENTRYPOINT ["java","-jar","runner.jar"]
